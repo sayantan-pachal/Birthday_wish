@@ -27,16 +27,6 @@ function revealSurprise() {
 
     // Launch Confetti
     launchConfetti();
-
-    const audio = document.getElementById('birthday-song');
-    
-    // This tells the browser to start loading the file if it hasn't already
-    audio.load(); 
-    
-    // Play the audio and handle potential errors (like a slow connection)
-    audio.play().catch(error => {
-        console.log("Audio play failed, likely due to browser settings:", error);
-    });
 }
 
 function launchConfetti() {
