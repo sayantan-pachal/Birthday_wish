@@ -1,19 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
     <button id="music-control" onclick="toggleMusic()">🎵</button>
     <audio id="birthday-song" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
     </audio>
 
     <div id="main-container">
@@ -24,23 +25,34 @@
         </div>
 
         <div id="card" style="display:none; text-align: center;">
+            <div style="padding: 20px;">
             <h1 class="animate__animated animate__bounceInDown">Happy Birthday! 🎂</h1>
-            <p class="animate__animated animate__fadeIn">Scroll down to see our memories...</p>
+
+            <div class="message-content animate__animated animate__fadeIn">
+                <p>Wishing you a day full of smiles, success, and happiness. May this year bring you good health, great memories, and big achievements. Another year older, another year brighter.</p>
+                
+                <p>Best wishes on your special day—keep shining and keep winning!</p>
+            </div>
+
+            <p class="animate__animated animate__fadeIn" style="margin-top: 20px;">✨ 🎈 🍰 🎈 ✨</p>
+            </div>
+            <p class="animate__animated animate__fadeInUp animate__delay-1" style="font-style: italic; color: #f472b6; margin-bottom: 10px;">Scroll down to see
+                our memories...</p>
         </div>
     </div>
 
     <div id="gallery" class="animate__animated">
         <div class="photo-grid">
             <div class="polaroid">
-                <img src="https://via.placeholder.com/300" alt="Memory 1">
+                <img src="https://via.placeholder.com/300" alt="Memory 1" />
                 <span>Best Times!</span>
             </div>
             <div class="polaroid">
-                <img src="https://via.placeholder.com/300" alt="Memory 2">
+                <img src="https://via.placeholder.com/300" alt="Memory 2" />
                 <span>Laughs & Joy!</span>
             </div>
             <div class="polaroid">
-                <img src="https://via.placeholder.com/300" alt="Memory 3">
+                <img src="https://via.placeholder.com/300" alt="Memory 3" />
                 <span>Forever Friends!</span>
             </div>
         </div>
@@ -48,4 +60,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
