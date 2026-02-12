@@ -360,7 +360,7 @@ window.onscroll = function() {
             if(backToTopBtn.classList.contains('opacity-0')) {
                 backToTopBtn.classList.add('invisible');
             }
-        }, 500); // Wait for transition to finish
+        }); // Wait for transition to finish
     }
 };
 
