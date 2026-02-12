@@ -7,22 +7,27 @@ const survivalData = {
         "Sending 'I miss you' is temporary. Self-respect is forever."
     ],
     music: [
-        "Lofi Hip Hop for Lonely Souls", 
-        "Someone Like You (Gully Remix)", 
-        "Mr. Brightside (but it's just the 'I'm fine' part)",
-        "Marvins Room (Extreme Slowed + Reverb)",
-        "Drivers License (but you're the one being driven crazy)"
+        "Channa Mereya",
+        "Agar Tum Saath Ho",
+        "Phir Le Aaya Dil (Reprise)",
+        "Ae Dil Hai Mushkil (Title Track)",
+        "Hamari Adhuri Kahani",
+        "Agar Tum Saath Ho (Reprise)",
+        "Channa Mereya (Unplugged)",
+        "Phir Bhi Tumko Chaahunga",
+        "Raabta (Kehte Hain Khuda Ne)",
+        "Kalank (Title Track)"
     ],
     motivate: [
-        "Gym + Money = The best revenge.", 
-        "Build your career; it won't wake up and stop loving you.", 
+        "Gym + Money = The best revenge.",
+        "Build your career; it won't wake up and stop loving you.",
         "You are the CEO of your own life. Don't hire interns.",
         "The best glow-up is mental peace.",
         "Don't cry over spilt milk or exes who didn't deserve you."
     ],
     reality: [
-        "It's okay to be single. It's not okay to beg.", 
-        "Netflix costs 500, a date costs 5000. Do the math.", 
+        "It's okay to be single. It's not okay to beg.",
+        "Netflix costs 500, a date costs 5000. Do the math.",
         "Love is a chemical reaction; so is a house fire.",
         "Being lonely is better than being with the wrong person.",
         "Your phone has 1% battery and more loyalty than them."
