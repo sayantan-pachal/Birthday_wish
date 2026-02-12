@@ -145,3 +145,39 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 
 // Initialize the first meme on load
 window.addEventListener('DOMContentLoaded', generateMeme);
+
+
+function triggerRelapse() {
+    const container = document.querySelector('.max-w-2xl'); // The Status Matrix container
+    
+    // 1. Start the shaking
+    container.classList.add('relapse-shake');
+    
+    // 2. Reset Values
+    selfRespect = 10;
+    attachment = 95;
+    singleLevel = 5;
+
+    // 3. Update the UI bars immediately
+    updateBars();
+
+    // 4. Stop shaking after 1.5 seconds
+    setTimeout(() => {
+        container.classList.remove('relapse-shake');
+    }, 1500);
+}
+
+// Helper to refresh all bars at once
+function updateBars() {
+    // Respect
+    document.getElementById('respect-bar').style.width = selfRespect + "%";
+    document.getElementById('respect-val').innerText = selfRespect + "%";
+    
+    // Attachment
+    document.getElementById('attach-bar').style.width = attachment + "%";
+    document.getElementById('attach-val').innerText = attachment + "%";
+    
+    // Single Level
+    document.getElementById('single-bar').style.width = singleLevel + "%";
+    document.getElementById('single-val').innerText = singleLevel + "%";
+}
