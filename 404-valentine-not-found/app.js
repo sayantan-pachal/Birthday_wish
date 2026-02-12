@@ -117,7 +117,45 @@ function updateBars() {
 // Show the popup
 function showAchievement() {
     const popup = document.getElementById('achievement-popup');
-    popup.classList.remove('hidden');
+    if (popup && popup.classList.contains('hidden')) {
+        popup.classList.remove('hidden');
+
+        // Trigger the Confetti Cannon!
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#eab308', '#ffffff', '#dc2626'] // Gold, White, and Red
+        });
+    }
+}
+// Burst Effect for the win!
+function fireVictoryConfetti() {
+    const duration = 3 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+        // Left side
+        confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ['#eab308', '#dc2626']
+        });
+        // Right side
+        confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ['#eab308', '#dc2626']
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
 }
 
 // Hide the popup
