@@ -43,7 +43,15 @@ function updateRespect(amount) {
 
 function updateAttachment(amount) {
     attachment = Math.max(0, attachment + amount);
-    if(attachment < 20) singleLevel = 100;
+    
+    // Trigger God Level if attachment hits 0
+    if (attachment === 0) {
+        singleLevel = 100;
+    } else {
+        // Linear logic: singleLevel increases as attachment decreases
+        singleLevel = 100 - attachment;
+    }
+    
     updateBars();
 }
 
