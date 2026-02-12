@@ -11,11 +11,30 @@
         .mood-crying { background-color: #1a1a2e; color: #a2a2d0; }
         .mood-happy { background-color: #1b4332; color: #d8f3dc; }
         .mood-dark { background-color: #000000; color: #ff4d4d; }
+
+        @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.relapse-shake {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
     </style>
 </head>
 <body class="mood-dark font-sans min-h-screen">
 
-    <header class="text-center py-20 px-4">
+    <header class="text-center py-20 px-4 min-h-screen flex flex-col items-center justify-center">
         <h1 class="text-6xl font-black mb-4 uppercase tracking-tighter">404: Valentine Not Found 💀</h1>
         <p class="text-xl mb-8">Congratulations! You survived another year of commercialized romance.</p>
         
@@ -38,17 +57,51 @@
             <p id="display-text" class="mt-6 italic text-lg text-yellow-500">Click a button for a truth bomb...</p>
         </div>
 
-        <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
-            <h3 class="text-2xl font-bold mb-4 text-center">Single Status Meter</h3>
-            <div class="w-full bg-zinc-700 rounded-full h-6 mb-6">
-                <div id="status-bar" class="bg-red-500 h-6 rounded-full transition-all duration-500" style="width: 99%"></div>
-            </div>
-            <div class="flex justify-between">
-                <button onclick="updateMeter(5)" class="text-sm bg-blue-900 px-3 py-1 rounded">+ Self Respect</button>
-                <button onclick="updateMeter(-5)" class="text-sm bg-purple-900 px-3 py-1 rounded">- Attachment</button>
-            </div>
-            <p id="meter-label" class="text-center mt-4 font-mono">Single Level: 99%</p>
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700 shadow-2xl">
+    
+    <div class="mb-6">
+        <div class="flex justify-between mb-2">
+            <span class="font-bold text-gray-300">Single Level</span>
+            <span id="single-val" class="font-mono">99%</span>
         </div>
+        <div class="w-full bg-gray-900 rounded-full h-4 overflow-hidden">
+            <div id="single-bar" class="bg-gradient-to-r from-red-500 to-pink-500 h-full transition-all duration-500" style="width: 99%"></div>
+        </div>
+    </div>
+
+    <div class="mb-6">
+        <div class="flex justify-between mb-2">
+            <span class="font-bold text-gray-300">Self-Respect</span>
+            <span id="respect-val" class="font-mono">50%</span>
+        </div>
+        <div class="w-full bg-gray-900 rounded-full h-4 overflow-hidden">
+            <div id="respect-bar" class="bg-gradient-to-r from-emerald-500 to-teal-500 h-full transition-all duration-500" style="width: 50%"></div>
+        </div>
+    </div>
+
+    <div class="mb-8">
+        <div class="flex justify-between mb-2">
+            <span class="font-bold text-gray-300">Attachment Level</span>
+            <span id="attach-val" class="font-mono">80%</span>
+        </div>
+        <div class="w-full bg-gray-900 rounded-full h-4 overflow-hidden">
+            <div id="attach-bar" class="bg-gradient-to-r from-orange-500 to-red-500 h-full transition-all duration-500" style="width: 80%"></div>
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3">
+        <button onclick="updateRespect(10)" class="flex-1 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold flex items-center justify-center gap-2 transition-transform active:scale-95">
+            <i class="fas fa-arrow-up"></i> Increase Self-Respect
+        </button>
+
+        <button onclick="updateAttachment(-10)" class="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl font-bold flex items-center justify-center gap-2 transition-transform active:scale-95">
+            <i class="fas fa-arrow-down"></i> Reduce Attachment
+        </button>
+    </div>
+    <button onclick="triggerRelapse()" class="w-full mt-4 px-6 py-2 bg-transparent border-2 border-red-900 text-red-900 hover:text-red-500 hover:border-red-500 rounded-xl font-bold transition-all uppercase text-xs tracking-widest">
+    ⚠️ Emergency: Saw a picture of my Ex
+</button>
+</div>
     </section>
 
     <section class="max-w-4xl mx-auto p-6">

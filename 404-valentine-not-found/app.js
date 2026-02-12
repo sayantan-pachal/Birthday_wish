@@ -27,11 +27,42 @@ function survivalAction(type) {
 }
 
 // 4. Progress Bar Logic
-let currentStatus = 99;
-function updateMeter(val) {
-    currentStatus = Math.min(Math.max(currentStatus + val, 0), 100);
-    document.getElementById('status-bar').style.width = currentStatus + "%";
-    document.getElementById('meter-label').innerText = `Single Level: ${currentStatus}%`;
+// Initial States
+let selfRespect = 50;
+let attachment = 80;
+let singleLevel = 99;
+
+function updateRespect(amount) {
+    // Math.min ensures it doesn't go above 100
+    selfRespect = Math.min(100, selfRespect + amount);
+    
+    // Update the UI
+    const bar = document.getElementById('respect-bar');
+    const text = document.getElementById('respect-val');
+    
+    bar.style.width = selfRespect + "%";
+    text.innerText = selfRespect + "%";
+
+    // Small Easter Egg: Increasing respect reduces attachment automatically
+    if(selfRespect > 80) updateAttachment(-5);
+}
+
+function updateAttachment(amount) {
+    // Math.max ensures it doesn't go below 0
+    attachment = Math.max(0, attachment + amount);
+    
+    const bar = document.getElementById('attach-bar');
+    const text = document.getElementById('attach-val');
+    
+    bar.style.width = attachment + "%";
+    text.innerText = attachment + "%";
+
+    // Logic: Lower attachment increases overall "Single Level" efficiency
+    if(attachment < 20) {
+        singleLevel = 100;
+        document.getElementById('single-bar').style.width = "100%";
+        document.getElementById('single-val').innerText = "GOD LEVEL";
+    }
 }
 
 // 5. Render Timeline
