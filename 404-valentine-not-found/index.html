@@ -31,7 +31,13 @@
                 <button onclick="survivalAction('motivate')" class="p-4 bg-zinc-800 rounded-lg hover:bg-zinc-700">💪 Motivate</button>
                 <button onclick="survivalAction('reality')" class="p-4 bg-zinc-800 rounded-lg hover:bg-zinc-700">🧠 Reality Check</button>
             </div>
-            <p id="display-text" class="mt-6 italic text-lg text-yellow-500">Click a button for a truth bomb...</p>
+            <div class="mt-6 flex flex-col items-center gap-2 group">
+        <p id="display-text" class="italic text-lg text-yellow-500">Click a button for a truth bomb...</p>
+        
+        <button onclick="copyToClipboard()" class="text-zinc-500 hover:text-white transition-all text-sm flex items-center gap-2">
+            <i class="far fa-copy"></i> <span id="copy-status">Copy to clipboard</span>
+        </button>
+    </div>
         </div>
 
         <div class="status-matrix-card bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700 shadow-2xl">

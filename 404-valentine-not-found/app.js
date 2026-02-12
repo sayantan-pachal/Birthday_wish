@@ -227,3 +227,27 @@ function activateDevMode() {
         document.body.style.filter = "invert(0)";
     }, 200);
 }
+
+
+// --- Click to Copy Clipboard Logic ---
+function copyToClipboard() {
+    const textToCopy = document.getElementById('display-text').innerText;
+    const statusLabel = document.getElementById('copy-status');
+
+    // Prevent copying the default placeholder text
+    if (textToCopy.includes("Click a button")) return;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        // Visual feedback
+        statusLabel.innerText = "Copied! ✅";
+        statusLabel.classList.add('text-green-400');
+
+        // Reset text after 2 seconds
+        setTimeout(() => {
+            statusLabel.innerText = "Copy to clipboard";
+            statusLabel.classList.remove('text-green-400');
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
