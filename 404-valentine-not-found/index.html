@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404: Valentine Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { transition: background-color 0.5s, color 0.5s; }
+        .mood-crying { background-color: #1a1a2e; color: #a2a2d0; }
+        .mood-happy { background-color: #1b4332; color: #d8f3dc; }
+        .mood-dark { background-color: #000000; color: #ff4d4d; }
+    </style>
+</head>
+<body class="mood-dark font-sans min-h-screen">
+
+    <header class="text-center py-20 px-4">
+        <h1 class="text-6xl font-black mb-4 uppercase tracking-tighter">404: Valentine Not Found 💀</h1>
+        <p class="text-xl mb-8">Congratulations! You survived another year of commercialized romance.</p>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+            <button onclick="changeMood('dark')" class="px-6 py-3 bg-red-600 text-white font-bold rounded-full hover:scale-110 transition">I'm Single</button>
+            <button onclick="changeMood('happy')" class="px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:scale-110 transition">Single & Happy</button>
+            <button onclick="changeMood('crying')" class="px-6 py-3 bg-blue-600 text-white font-bold rounded-full hover:scale-110 transition">Single & Crying</button>
+        </div>
+    </header>
+
+    <section class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+        <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 text-center">
+            <h3 class="text-2xl font-bold mb-4">Survival Kit</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="survivalAction('insult')" class="p-4 bg-zinc-800 rounded-lg hover:bg-zinc-700">💬 Insult Ex</button>
+                <button onclick="survivalAction('music')" class="p-4 bg-zinc-800 rounded-lg hover:bg-zinc-700">🎧 Sad Song</button>
+                <button onclick="survivalAction('motivate')" class="p-4 bg-zinc-800 rounded-lg hover:bg-zinc-700">💪 Motivate</button>
+                <button onclick="survivalAction('reality')" class="p-4 bg-zinc-800 rounded-lg hover:bg-zinc-700">🧠 Reality Check</button>
+            </div>
+            <p id="display-text" class="mt-6 italic text-lg text-yellow-500">Click a button for a truth bomb...</p>
+        </div>
+
+        <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+            <h3 class="text-2xl font-bold mb-4 text-center">Single Status Meter</h3>
+            <div class="w-full bg-zinc-700 rounded-full h-6 mb-6">
+                <div id="status-bar" class="bg-red-500 h-6 rounded-full transition-all duration-500" style="width: 99%"></div>
+            </div>
+            <div class="flex justify-between">
+                <button onclick="updateMeter(5)" class="text-sm bg-blue-900 px-3 py-1 rounded">+ Self Respect</button>
+                <button onclick="updateMeter(-5)" class="text-sm bg-purple-900 px-3 py-1 rounded">- Attachment</button>
+            </div>
+            <p id="meter-label" class="text-center mt-4 font-mono">Single Level: 99%</p>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto p-6">
+        <h2 class="text-3xl font-bold mb-6 text-center">Valentine Week: Reality Edition</h2>
+        <div class="overflow-x-auto bg-zinc-900 rounded-xl">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-zinc-800">
+                    <tr>
+                        <th class="p-4">Day</th>
+                        <th class="p-4">The Lie</th>
+                        <th class="p-4">Your Reality</th>
+                    </tr>
+                </thead>
+                <tbody id="timeline-body">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
