@@ -130,7 +130,7 @@ function shareOnX() {
     const tweetText = encodeURIComponent(
         "I just achieved GOD LEVEL SINGLE status on '404: Valentine Not Found'! 💀🔥 My self-respect is at 100% and my attachment issues are gone. Check it out!"
     );
-    const tweetUrl = "https://sayantanpachal.vercel.app"; // Your portfolio link
+    const tweetUrl = "https://sayantan-pachal.github.io/choses_speciales/404-valentine-not-found";link
     const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${tweetUrl}`;
 
     // Open in a new small window
