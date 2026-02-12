@@ -109,6 +109,17 @@ function closeAchievement() {
     popup.classList.add('hidden');
 }
 
+function shareOnX() {
+    const tweetText = encodeURIComponent(
+        "I just achieved GOD LEVEL SINGLE status on '404: Valentine Not Found'! 💀🔥 My self-respect is at 100% and my attachment issues are gone. Check it out!"
+    );
+    const tweetUrl = "https://sayantanpachal.vercel.app"; // Your portfolio link
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${tweetUrl}`;
+    
+    // Open in a new small window
+    window.open(twitterUrl, "_blank", "width=600,height=400");
+}
+
 // --- Timeline Rendering ---
 function renderTimeline() {
     const timelineBody = document.getElementById('timeline-body');
