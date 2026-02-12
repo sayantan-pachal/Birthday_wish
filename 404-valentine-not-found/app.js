@@ -344,3 +344,32 @@ function downloadAchievementBadge() {
     link.href = canvas.toDataURL("image/png");
     link.click();
 }
+
+// --- Back to Top Button Logic ---
+const backToTopBtn = document.getElementById('backToTop');
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        // Show button
+        backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'invisible');
+        backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+    } else {
+        // Hide button
+        backToTopBtn.classList.add('opacity-0', 'translate-y-10');
+        setTimeout(() => {
+            if(backToTopBtn.classList.contains('opacity-0')) {
+                backToTopBtn.classList.add('invisible');
+            }
+        }, 500); // Wait for transition to finish
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// --- Set Current Year in Footer ---
+document.getElementById('year').textContent = new Date().getFullYear();
