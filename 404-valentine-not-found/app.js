@@ -21,14 +21,25 @@ function changeMood(mood) {
 function survivalAction(type) {
     const display = document.getElementById('display-text');
     const list = survivalData[type];
-
+    
     if (list) {
         const random = list[Math.floor(Math.random() * list.length)];
-        display.style.opacity = 0;
-        setTimeout(() => {
+        
+        if (type === 'music') {
+            // Create a YouTube search query link
+            const searchQuery = encodeURIComponent(`Arijit Singh ${random} official song`);
+            const youtubeUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
+            
+            // Set the HTML to be a clickable link
+            display.innerHTML = `🎵 <a href="${youtubeUrl}" target="_blank" class="hover:text-white transition">Now Playing: ${random} <p>{Listen on YouTube}</p></a>`;
+        } else {
+            // For insults, motivation, etc., just show the text
             display.innerText = random;
-            display.style.opacity = 1;
-        }, 150);
+        }
+        
+        // Reset the copy status if you have one
+        const statusLabel = document.getElementById('copy-status');
+        if(statusLabel) statusLabel.innerHTML = '<i class="far fa-copy"></i> Copy to clipboard';
     }
 }
 
