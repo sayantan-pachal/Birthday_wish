@@ -29,4 +29,4 @@ The app generates a verified certificate including:
 ## 💻 How to Run Locally
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/sayantan-pachal/valentine-404.git](https://github.com/sayantan-pachal/valentine-404.git)
+   git clone (https://sayantan-pachal.github.io/choses_speciales/404-valentine-not-found)
