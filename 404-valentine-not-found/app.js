@@ -336,7 +336,7 @@ function downloadAchievementBadge() {
     // 7. Site Branding
     ctx.fillStyle = "#52525b";
     ctx.font = "14px Arial";
-    ctx.fillText("sayantanpachal.vercel.app", canvas.width / 2, 350);
+    ctx.fillText("404: Valentine Not Found 💀", canvas.width / 2, 350);
 
     // 8. Trigger the Actual Download
     const link = document.createElement('a');
