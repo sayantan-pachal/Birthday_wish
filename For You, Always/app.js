@@ -69,7 +69,7 @@ class Heart {
     }
     draw() {
     ctx.globalAlpha = this.opacity;
-    ctx.fillStyle = '#C9184A'; // Vintage Burgundy
+    ctx.fillStyle = '#FF69B4'; // Vintage Burgundy
     ctx.beginPath();
     
     const x = this.x;
