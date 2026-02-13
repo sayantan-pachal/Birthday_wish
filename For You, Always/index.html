@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You, Always</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bg-[#E75480] min-h-screen p-4 md:p-10 selection:bg-red-200">
     <canvas id="heartCanvas"></canvas>
 
@@ -16,25 +20,31 @@
         <source src="love.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="max-w-2xl mx-auto letter-bg shadow-2xl relative min-h-[85vh] p-6 md:p-10 text-[#4a3728] justify-center flex flex-col">
-        
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#800000] rounded-full shadow-lg border-2 border-[#5a0000] flex items-center justify-center text-white font-serif italic text-[10px] z-10">Niku</div>
+    <div
+        class="max-w-2xl mx-auto letter-bg shadow-2xl relative min-h-[85vh] p-6 md:p-10 text-[#4a3728] justify-center flex flex-col">
+
+        <div
+            class="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#800000] rounded-full shadow-lg border-2 border-[#5a0000] flex items-center justify-center text-white font-serif italic text-[10px] z-10">
+            Niku</div>
 
         <section id="hero" class="h-[55vh] flex flex-col items-center justify-center text-center">
-        <h1 id="typewriter-h1" class="font-cursive text-5xl md:text-6xl mb-4 text-[#800000]"></h1>
-        <p id="typewriter-p" class="font-serif-classic italic text-lg mb-8 opacity-80 px-4"></p>
-        <button id="start-btn" class="hidden font-serif-classic border-2 border-[#800000] px-6 py-2 text-sm uppercase tracking-widest hover:bg-[#800000] hover:text-[#fdf5e6] transition-all duration-500">
-            Open the Letter
-        </button>
-    </section>
+            <h1 id="typewriter-h1" class="font-cursive text-5xl md:text-6xl mb-4 text-[#800000]"></h1>
+            <p id="typewriter-p" class="font-serif-classic italic text-lg mb-8 opacity-80 px-4"></p>
+            <button id="start-btn"
+                class="hidden font-serif-classic border-2 border-[#800000] px-6 py-2 text-sm uppercase tracking-widest hover:bg-[#800000] hover:text-[#fdf5e6] transition-all duration-500">
+                Open the Letter
+            </button>
+        </section>
 
         <main id="main-content" class="hidden space-y-24 py-10">
-            
+
             <div class="text-center text-3xl text-[#800000] opacity-50">❦</div>
 
             <section class="reveal text-center space-y-6">
-                <h2 class="font-serif-classic text-2xl font-bold uppercase tracking-tighter">This exists because of you</h2>
-                <p class="font-serif-classic italic text-lg leading-relaxed">"You're beautiful in ways mirrors can't show. You make my worst days feel lighter."</p>
+                <h2 class="font-serif-classic text-2xl font-bold uppercase tracking-tighter">This exists because of you
+                </h2>
+                <p class="font-serif-classic italic text-lg leading-relaxed">"You're beautiful in ways mirrors can't
+                    show. You make my worst days feel lighter."</p>
             </section>
 
             <section class="reveal text-center bg-[#f4eccf]/50 p-6 border-y border-[#d2b48c]">
@@ -54,7 +64,8 @@
 
             <section class="reveal text-center pt-10">
                 <p class="font-serif-classic text-lg">If the world ever feels heavy, remember—</p>
-                <p class="font-serif-classic font-bold text-2xl text-[#800000] my-4">You have someone who cares deeply.</p>
+                <p class="font-serif-classic font-bold text-2xl text-[#800000] my-4">You have someone who cares deeply.
+                </p>
                 <div class="mt-16">
                     <p class="font-cursive text-4xl">Always yours,</p>
                     <p class="font-serif-classic uppercase tracking-widest text-sm mt-2 opacity-60">Niku ❤️</p>
@@ -65,4 +76,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>

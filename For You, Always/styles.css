@@ -9,19 +9,24 @@
 /* Parchment Texture & Border */
 .letter-bg {
     background: #fdf5e6;
-    background-image: 
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 100%),
-        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.01) 1px, rgba(0,0,0,0.01) 2px);
-    border: 2px solid #800000; 
-    padding: 20px; 
-    box-shadow: 
-        0 10px 30px rgba(0,0,0,0.5),             /* Outer shadow */
-        inset 0 0 0 5px #fdf5e6,                 /* Space between borders */
-        inset 0 0 0 7px #d2b48c,                 /* The inner "Gold" line */
-        inset 0 0 40px rgba(74, 55, 40, 0.1);    /* Soft parchment depth */
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 0, 0, 0.01) 1px, rgba(0, 0, 0, 0.01) 2px);
+    border: 2px solid #800000;
+    padding: 20px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        /* Outer shadow */
+        inset 0 0 0 5px #fdf5e6,
+        /* Space between borders */
+        inset 0 0 0 7px #d2b48c,
+        /* The inner "Gold" line */
+        inset 0 0 40px rgba(74, 55, 40, 0.1);
+    /* Soft parchment depth */
 
     position: relative;
-    border-radius: 2px; /* Keep it sharp like a real letter */ 
+    border-radius: 2px;
+    /* Keep it sharp like a real letter */
 }
 
 /* Optional: Adding "Corner Ornaments" using CSS Pseudo-elements */
@@ -75,8 +80,9 @@ h1 {
 
 @media (max-width: 480px) {
     .letter-bg {
-        border: 8px solid #d2b48c; /* Fallback simple border */
-        border-image: none; 
+        border: 8px solid #d2b48c;
+        /* Fallback simple border */
+        border-image: none;
         padding: 20px;
     }
 }
@@ -86,8 +92,13 @@ h1 {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Optional: Add a blinking cursor effect */
@@ -97,6 +108,13 @@ h1 {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }

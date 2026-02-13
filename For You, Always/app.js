@@ -25,16 +25,16 @@ window.onload = () => {
     });
 };
 
-document.getElementById('start-btn').addEventListener('click', function() {
+document.getElementById('start-btn').addEventListener('click', function () {
     const music = document.getElementById('bg-music');
     music.play();
 
     const mainContent = document.getElementById('main-content');
     mainContent.classList.remove('hidden');
-    
+
     // Smoothly scroll to the beginning of the main content
     mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    
+
     this.style.display = 'none';
 });
 
@@ -68,27 +68,27 @@ class Heart {
         this.opacity = 1;
     }
     draw() {
-    ctx.globalAlpha = this.opacity;
-    ctx.fillStyle = '#FF69B4'; // Vintage Burgundy
-    ctx.beginPath();
-    
-    const x = this.x;
-    const y = this.y;
-    const s = this.size;
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = '#FF69B4'; // Vintage Burgundy
+        ctx.beginPath();
 
-    // Move to the top center of the heart
-    ctx.moveTo(x, y);
-    
-    // Left side of the heart
-    ctx.bezierCurveTo(x, y - s/3, x - s, y - s/3, x - s, y + s/3);
-    ctx.bezierCurveTo(x - s, y + s/1.5, x, y + s, x, y + s * 1.2);
-    
-    // Right side of the heart
-    ctx.bezierCurveTo(x, y + s, x + s, y + s/1.5, x + s, y + s/3);
-    ctx.bezierCurveTo(x + s, y - s/3, x, y - s/3, x, y);
-    
-    ctx.fill();
-}
+        const x = this.x;
+        const y = this.y;
+        const s = this.size;
+
+        // Move to the top center of the heart
+        ctx.moveTo(x, y);
+
+        // Left side of the heart
+        ctx.bezierCurveTo(x, y - s / 3, x - s, y - s / 3, x - s, y + s / 3);
+        ctx.bezierCurveTo(x - s, y + s / 1.5, x, y + s, x, y + s * 1.2);
+
+        // Right side of the heart
+        ctx.bezierCurveTo(x, y + s, x + s, y + s / 1.5, x + s, y + s / 3);
+        ctx.bezierCurveTo(x + s, y - s / 3, x, y - s / 3, x, y);
+
+        ctx.fill();
+    }
     update() {
         this.y -= this.speed;
         this.opacity -= 0.003;
