@@ -21,15 +21,15 @@
         inset 0 0 40px rgba(74, 55, 40, 0.1);    /* Soft parchment depth */
 
     position: relative;
-    border-radius: 2px; /* Keep it sharp like a real letter */
+    border-radius: 2px; /* Keep it sharp like a real letter */ 
 }
 
 /* Optional: Adding "Corner Ornaments" using CSS Pseudo-elements */
 .letter-bg::before {
     content: "❦";
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 2px;
+    left: 8px;
     color: #800000;
     font-size: 1.2rem;
     opacity: 0.6;
@@ -38,8 +38,8 @@
 .letter-bg::after {
     content: "❦";
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: 2px;
+    right: 8px;
     color: #800000;
     font-size: 1.2rem;
     opacity: 0.6;
