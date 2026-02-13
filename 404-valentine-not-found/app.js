@@ -189,7 +189,6 @@ function renderTimeline() {
     `).join('');
 }
 
-// --- Meme Generator Logic ---
 function generateMeme() {
     const canvas = document.getElementById('memeCanvas');
     if (!canvas) return;
@@ -200,45 +199,47 @@ function generateMeme() {
 
     // STEP 2: Wait for exit animation to finish (400ms)
     setTimeout(() => {
-        // Clear the canvas and draw the NEW content
         const ctx = canvas.getContext('2d');
+        
+        // --- EVERYTHING DRAWING HAPPENS HERE NOW ---
+        const quote = survivalData.memes[Math.floor(Math.random() * survivalData.memes.length)];
+
+        // Clear and Draw Background
+        ctx.fillStyle = "#18181b";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw Border
+        ctx.strokeStyle = "#dc2626";
+        ctx.lineWidth = 10;
+        ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+
+        // Draw Header
+        ctx.fillStyle = "#dc2626";
+        ctx.font = "bold 20px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("VALENTINE SURVIVOR 2026", canvas.width / 2, 60);
+
+        // Draw Quote
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "italic 24px Georgia";
+        wrapText(ctx, quote, canvas.width / 2, canvas.height / 2, 400, 30);
+
+        // Draw Branding
+        const brandingY = canvas.height - 40;
+        ctx.fillStyle = "#52525b";
+        ctx.font = "14px Arial";
+        ctx.fillText("404: Valentine Not Found 💀", canvas.width / 2, brandingY);
+
+        // Update Download Link
+        document.getElementById('downloadBtn').href = canvas.toDataURL("image/png");
+        // -------------------------------------------
 
         // STEP 3: Start the "New one coming" (Entrance)
         canvas.classList.remove('animate-exit');
         void canvas.offsetWidth; // Force reflow
         canvas.classList.add('animate-entrance');
         
-    }, 400); // This matches the 0.4s exit duration
-
-    // For demonstration, we'll just redraw the same meme content after the exit animation 
-    const ctx = canvas.getContext('2d');
-    const quote = survivalData.memes[Math.floor(Math.random() * survivalData.memes.length)];
-
-    // Clear the canvas and draw the NEW content
-    ctx.fillStyle = "#18181b";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.strokeStyle = "#dc2626";
-    ctx.lineWidth = 10;
-    ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
-
-    ctx.fillStyle = "#dc2626";
-    ctx.font = "bold 20px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText("VALENTINE SURVIVOR 2026", canvas.width / 2, 60);
-
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "italic 24px Georgia";
-    wrapText(ctx, quote, canvas.width / 2, canvas.height / 2, 400, 30);
-
-    const brandingY = canvas.height - 40;
-
-    ctx.fillStyle = "#52525b";
-    ctx.font = "14px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText("404: Valentine Not Found 💀", canvas.width / 2, brandingY);
-
-    document.getElementById('downloadBtn').href = canvas.toDataURL("image/png");
+    }, 400); // 400ms delay matches your CSS exit duration
 }
 
 function wrapText(context, text, x, y, maxWidth, lineHeight) {
