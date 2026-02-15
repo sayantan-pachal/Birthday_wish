@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automated Quiz App</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f9; display: flex; justify-content: center; padding: 50px; }
+        .quiz-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 400px; }
+        .option-btn { display: block; width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; background: white; transition: 0.3s; }
+        .option-btn:hover { background: #e2e2e2; }
+        .score-area { text-align: center; font-weight: bold; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="setup-area">
+        <h2>Enter Name to Start</h2>
+        <input type="text" id="username" placeholder="Your Name" style="width:90%; padding:10px;">
+        <button onclick="startQuiz()" style="margin-top:10px; width:100%; padding:10px; background: #28a745; color:white; border:none;">Start Quiz</button>
+    </div>
+
+    <div id="quiz-area" class="hidden">
+        <h3 id="question-text">Question goes here</h3>
+        <div id="options-container"></div>
+    </div>
+
+    <div id="result-area" class="hidden">
+        <h2 class="score-area">Quiz Finished!</h2>
+        <p id="final-score" class="score-area"></p>
+    </div>
+</div>
+
+<script>
+    let questions = [];
+    let currentIdx = 0;
+    let score = 0;
+    let username = "";
+
+    async function startQuiz() {
+        username = document.getElementById('username').value;
+        if (!username) return alert("Please enter name");
+
+        // Fetching data from your Python Bridge
+        const response = await fetch('http://localhost:5000/api/questions');
+        questions = await response.json();
+
+        document.getElementById('setup-area').classList.add('hidden');
+        document.getElementById('quiz-area').classList.remove('hidden');
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const q = questions[currentIdx];
+        document.getElementById('question-text').innerText = q.text;
+        const container = document.getElementById('options-container');
+        container.innerHTML = ""; // Clear old buttons
+
+        q.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = "option-btn";
+            btn.innerText = opt;
+            btn.onclick = () => handleAnswer(opt);
+            container.appendChild(btn);
+        });
+    }
+
+    function handleAnswer(choice) {
+        if (choice === questions[currentIdx].answer) {
+            score++;
+        }
+        currentIdx++;
+        if (currentIdx < questions.length) {
+            showQuestion();
+        } else {
+            finishQuiz();
+        }
+    }
+
+    async function finishQuiz() {
+        document.getElementById('quiz-area').classList.add('hidden');
+        document.getElementById('result-area').classList.remove('hidden');
+        document.getElementById('final-score').innerText = `Score: ${score}/${questions.length}`;
+
+        // Send final score back to Python to save in results.csv
+        await fetch('http://localhost:5000/api/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, score })
+        });
+    }
+</script>
+</body>
+</html>
